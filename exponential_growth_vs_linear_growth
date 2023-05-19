@@ -1,0 +1,41 @@
+# okay, so as i'm brushing up on my math skills as i haven't taken a math class in close to 10 years,
+# i come across a khan academy practice session that, like, i understand the math, i just don't wanna do it!
+# so i thought to myself, "why not automate this shit?!"
+# this is my FIRST TIME automating, and it feeels so good!
+
+# so this function will calculate the exponential growth as a function of the exponent (usually time)
+def calculate_exponential_growth(base, growth, exponent):
+    product = 0
+    product = base * growth ** exponent
+    return product
+
+# this function will calculate the linear growth as a function of time
+def calculate_linear_growth(base, growth, time):
+    product = 0
+    product = base + growth * time
+    return product
+
+#^^ the above functions are calculated in explicit form, but i think i will play with
+# writing them in recursive form so i can practice programming with recursion.
+
+# the khan academy questions wanted to know when the exponential growth would exceed
+# the linear growth. how annoying lol. 
+
+# this function will call the two functions above and compare the values in a while loop
+# once the value for the exponential function exceeds that of the linear,
+# the loop ends and the function returns the year where the exp exceeds the linear
+
+def determine_bigger_growth():
+    year = 0
+    exp_growth = 0.0
+    lin_growth = 1
+
+    while lin_growth > exp_growth:
+        exp_growth = calculate_exponential_growth(20000, 1.05, year)
+        lin_growth = calculate_linear_growth(25000, 500, year)
+        year += 1
+
+    return year
+
+practice = determine_bigger_growth()
+print(practice)
